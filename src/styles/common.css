@@ -1,0 +1,68 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}
+
+.auth-reference {
+    color: steelblue;
+    text-decoration: none;
+}
+
+.auth-reference:active {
+    color: steelblue;
+}
+
+.auth-reference:visited {
+    color: steelblue;
+}
+
+.auth-reference:hover {
+    filter: brightness(150%);
+}
+
+.auth-form {
+    max-width: 300px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.auth-head {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.auth-label {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.auth-input {
+    height: auto;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.auth-button {
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.auth-form h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.has-error {
+    color: red;
+    margin: 0;
+    margin-top: 10px;
+}
