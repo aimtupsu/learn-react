@@ -1,48 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import '../../styles/common.css';
 
-export default class AuthInput extends Component {
+const AuthInput = ({name, desc, type, placeholder, autoFocus, errorMessage}) => {
 
-    constructor() {
-        super();
+    const error = errorMessage
+        ? <p className="auth-error ">{errorMessage}</p>
+        : null;
 
-        this.state = {
-            value: ''
-        };
+    return (
+        <div>
+            <label className="auth-label" htmlFor={name}>{desc}</label>
+            {error}
+            <input className="auth-input"
+                   ref={(input) => { if (input && autoFocus) { input.focus() }}}
+                   name={name}
+                   type={type}
+                   placeholder={placeholder}
+            />
+        </div>
+    )
+};
 
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    componentDidMount() {
-        if (this.props.autoFocus) {
-            this.nameInput.focus();
-        }
-    }
-
-    handleChange (event) {
-
-        this.setState({ value: event.target.value })
-    }
-
-    render() {
-
-        const error = this.props.errorMessage
-            ? <p className="auth-error ">{this.props.errorMessage}</p>
-            : null;
-
-        return (
-            <div>
-                <label className="auth-label" htmlFor={this.props.name}>{this.props.desc}</label>
-                {error}
-                <input className="auth-input"
-                       ref={(input) => this.nameInput = input}
-                       name={this.props.name}
-                       type={this.props.type}
-                       placeholder={this.props.placeholder}
-                       value={this.props.value}
-                       onChange={this.handleChange}
-                />
-            </div>
-        )
-    }
-}
+export default AuthInput;

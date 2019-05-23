@@ -19,17 +19,19 @@ export default class Home extends Component {
         }).then(res => {
 
             if (res.status === 200) {
+
                 this.setState( {
                     isAuthorized: true
+                });
+
+                res.text().then(res => {
+                    this.setState( {
+                        username: res
+                    })
                 })
+            } else if (res.status === 401) {
+                this.props.history.push('/login');
             }
-
-            return res.text()
-        }).then(data => {
-
-            this.setState( {
-                username: data
-            })
         });
     }
 
@@ -47,7 +49,7 @@ export default class Home extends Component {
         return (
             <div className="container h-100">
                 <div className="row justify-content-center">
-                    <div className="col-3 align-items-center">
+                    <div className="col-3">
                         {this.state.isAuthorized && userInfo}
                     </div>
                 </div>
