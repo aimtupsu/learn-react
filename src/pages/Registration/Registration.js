@@ -1,7 +1,7 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import AuthForm from "../../components/AuthForm";
 
-export default class Login extends Component {
+export default class Registration extends Component {
 
     constructor(props) {
         super(props);
@@ -18,18 +18,18 @@ export default class Login extends Component {
         event.preventDefault();
         const data = new FormData(event.target);
 
-        fetch('/login',
+        fetch('/registration',
             {
                 method: 'POST',
                 body: data
             })
             .then(res => {
                 if (res.status === 200) {
-                    console.log(res.headers.get('Authorization'));
+                    console.log("Регистрация прошла успешно");
                     this.setState({ error: false });
-                    this.props.history.push('/');
-                } else if (res.status === 401) {
-                    this.setState({ error: true });
+                    this.props.history.push('/login');
+                } else {
+                    this.setState({ error: true })
                 }
             });
     }
@@ -37,17 +37,23 @@ export default class Login extends Component {
     render() {
 
         const authInputs = [{
-            name: "username",
+            name: "principal",
             type: "text",
             desc: "Имя пользователя",
-            placeholder: "Введите имя пользователя...",
+            placeholder: "Имя пользователя",
             errorMessage: "",
             autoFocus: true
+        }, {
+            name: "email",
+            type: "text",
+            desc: "Электронная почта",
+            placeholder: "Электронная почта",
+            errorMessage: ""
         }, {
             name: "password",
             type: "password",
             desc: "Пароль",
-            placeholder: "Введите пароль...",
+            placeholder: "Пароль",
             errorMessage: ""
         }];
 
@@ -56,12 +62,12 @@ export default class Login extends Component {
                 <div className="row h-100 justify-content-center align-items-center">
                     <div className="col-lg-5">
                         <AuthForm
-                            headText="Вход"
+                            headText="Регистрация"
                             error={this.state.error}
                             errorMessage={this.state.errorMessage}
-                            buttonText="Войти"
-                            link={'/registration'}
-                            linkText="Зарегистрироваться"
+                            buttonText="Зарегистрировать"
+                            link="/login"
+                            linkText="Есть аккаунт"
                             onSubmit={this.handleSubmit}
                             authInputs={authInputs}
                         />

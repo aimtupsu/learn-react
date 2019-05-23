@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import '../../styles/common.css';
 
-class AuthInput extends Component {
+export default class AuthInput extends Component {
 
-    constructor (props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
-            name: props.name,
-            type: props.type,
-            desc: props.desc,
-            placeholder: props.placeholder,
-            value: '',
-            errorMessage: props.errorMessage,
-            autoFocus: props.autoFocus
+            value: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.props.autoFocus) {
+            this.nameInput.focus();
+        }
     }
 
     handleChange (event) {
@@ -26,25 +26,23 @@ class AuthInput extends Component {
 
     render() {
 
-        const error = this.state.errorMessage !== ''
-            ? <p className="has-error ">{this.state.errorMessage}</p>
+        const error = this.props.errorMessage
+            ? <p className="auth-error ">{this.props.errorMessage}</p>
             : null;
 
         return (
             <div>
-                <label className="auth-label" htmlFor={this.state.name}>{this.state.desc}</label>
+                <label className="auth-label" htmlFor={this.props.name}>{this.props.desc}</label>
                 {error}
                 <input className="auth-input"
-                       name={this.state.name}
-                       type={this.state.type}
-                       placeholder={this.state.placeholder}
-                       value={this.state.value}
+                       ref={(input) => this.nameInput = input}
+                       name={this.props.name}
+                       type={this.props.type}
+                       placeholder={this.props.placeholder}
+                       value={this.props.value}
                        onChange={this.handleChange}
-                       autoFocus={this.state.autoFocus}
                 />
             </div>
         )
     }
 }
-
-export { AuthInput };

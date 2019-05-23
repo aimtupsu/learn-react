@@ -1,1 +1,3 @@
-export * from './AuthInput';
+import AuthInput from './AuthInput';
+
+export default AuthInput;
