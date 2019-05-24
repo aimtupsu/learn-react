@@ -1,7 +1,7 @@
 import React from "react";
 import AuthInput from "../../components/AuthInput";
 import '../../styles/bootstrap.min.css';
-import '../../styles/common.css';
+import '../../styles/auth-styles.css';
 
 const AuthForm = ({authInputs, onSubmit, headText, error, errorMessage, buttonText, link, linkText}) => {
 

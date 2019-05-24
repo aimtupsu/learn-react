@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from "react";
-import '../../styles/common.css';
+import '../../styles/auth-styles.css';
 import '../../styles/bootstrap.min.css';
 
 export default class Home extends Component {

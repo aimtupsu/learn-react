@@ -1,18 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab|PT+Sans+Caption&subset=latin,cyrillic);
 
-html {
+html, body {
     height: 100%;
-}
-
-body {
-    height: 100%;
+    background-color: #eee!important;
 }
 
 .root {
-    background-color: #eee;
     font-family: 'Roboto Slab', serif;
-    font-size: 20px;
     height: 100%;
+    font-size: 20px;
 }
 
 .auth-reference {

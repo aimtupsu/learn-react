@@ -1,0 +1,25 @@
+.diary-wrapper {
+    height: auto;
+}
+
+.diary-day-wrapper {
+    margin: 10px 0;
+    padding: 5px 40px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.diary-day-header {
+    margin: auto;
+}
+
+.diary-arrow {
+    margin: 20px 10px;
+}
+
+.diary-p {
+    margin: 1em;
+}
+
+.diary-footer {
+    height: 100px;
+}

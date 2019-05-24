@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/common.css';
+import '../../styles/auth-styles.css';
 
 const AuthInput = ({name, desc, type, placeholder, autoFocus, errorMessage}) => {
 
